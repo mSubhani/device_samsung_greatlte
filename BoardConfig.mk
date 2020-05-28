@@ -1,3 +1,6 @@
+kernel := device/samsung/greatlte/include/kernel
+dt := device/samsung/greatlte/include/dt.img
+
 # Platform
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
@@ -23,19 +26,10 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
 # Kernel
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CONFIG := exynos8895-greatlte_defconfig
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/samsung/universal8895
-
-# Image
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/greatlte/mkbootimg.mk
-BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_KERNEL_SEPARATED_DT := true
+TARGET_PREBUILT_KERNEL := $(kernel)
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --board SRPQC03B001KU
-TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --board SRPQC03B001KU --dt $(dt)
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -62,6 +56,7 @@ TW_EXTRA_LANGUAGES := true
 TW_USE_NEW_MINADBD := true
 TW_EXCLUDE_TWRPAPP := true
 BOARD_SUPPRESS_SECURE_ERASE := true
+TW_DEVICE_VERSION := 2
 
 # Include
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/greatlte/include
@@ -70,7 +65,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/greatlte/include
 LZMA_RAMDISK_TARGETS := recovery
 LZMA_COMPRESSION := -9
 SHRP_PATH := device/samsung/greatlte
-SHRP_MAINTAINER := corsicanu
+SHRP_MAINTAINER := mSubhani
 SHRP_DEVICE_CODE := greatlte
 SHRP_EDL_MODE := 0
 SHRP_EXTERNAL := /external_sd
