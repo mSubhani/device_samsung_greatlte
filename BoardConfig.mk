@@ -1,5 +1,7 @@
-kernel := device/samsung/greatlte/include/kernel
-dt := device/samsung/greatlte/include/dt.img
+# Include
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/greatlte/prebuilt
+kernel := device/samsung/greatlte/prebuilt/kernel
+dt := device/samsung/greatlte/prebuilt/dt.img
 
 # Platform
 BOARD_VENDOR := samsung
@@ -57,9 +59,6 @@ TW_USE_NEW_MINADBD := true
 TW_EXCLUDE_TWRPAPP := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_DEVICE_VERSION := 2
-
-# Include
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/greatlte/include
 
 # SHRP flags
 LZMA_RAMDISK_TARGETS := recovery
