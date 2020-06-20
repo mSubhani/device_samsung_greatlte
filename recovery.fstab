@@ -13,4 +13,5 @@
 /preload        ext4   /dev/block/platform/11120000.ufs/by-name/HIDDEN        flags=display="Preload";wipeingui
 
 /external_sd    vfat   /dev/block/mmcblk0p1 /dev/block/mmcblk0                flags=display="Micro SDcard";storage;wipeingui;removable
+/storage		ext4   /data/media/0						                  flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable
 /usb-otg        vfat   /dev/block/sdf1 /dev/block/sdf                         flags=display="USB-OTG";storage;wipeingui;removable
